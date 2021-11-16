@@ -19,7 +19,7 @@ const HomePage = () => {
     estado: false
 
   })
-  const { mainState, createTodo,updateEstado } = useContext(MainContext);
+  const { mainState, createTodo,updateEstado, deleteTodo } = useContext(MainContext);
 
 
   // navigation is an instance of our current NavigationContainer and we access to it trough the useNavigation() custom hook
@@ -53,6 +53,10 @@ const HomePage = () => {
     updateEstado(estado,item.id)
   }
 
+  const deleteItem=(item)=>{
+    deleteTodo(item.id)
+  }
+
   return (
     <View style={styles.container}>
       {/* Simple text with the current user */}
@@ -81,7 +85,11 @@ const HomePage = () => {
 
       </TouchableOpacity>
         
-        } {item.text }</Text>}
+        } {item.text } 
+        <TouchableOpacity onPress={()=>deleteItem(item)}>
+          <Text>Borrar</Text>
+        </TouchableOpacity>
+        </Text>}
       />
 
       {/* Simple button that calls our function */}

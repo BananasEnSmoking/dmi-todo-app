@@ -68,6 +68,12 @@ export const MainProvider = ({ children } ) =>{
         todoRef.update({estado:update})
     }
 
+    const deleteTodo =(ref)=>{
+        const usuario = auth.currentUser.uid;
+        const todoRef = database.ref(`todos/${usuario}/${ref}`)
+        todoRef.remove()
+    }
+
     return (
         <MainContext.Provider value={{
             mainState: state,
@@ -75,7 +81,8 @@ export const MainProvider = ({ children } ) =>{
             createTodo,
             updateProfilePhoto,
             getFotos,
-            updateEstado
+            updateEstado,
+            deleteTodo
         }} >
             { children }
         </MainContext.Provider>
