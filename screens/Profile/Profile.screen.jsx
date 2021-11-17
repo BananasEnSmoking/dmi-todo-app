@@ -2,6 +2,7 @@ import React,{ useEffect, useState, useContext } from 'react';
 import firebase from "firebase";
 import { auth } from "../../firebase";
 import * as ImagePicker from 'expo-image-picker';
+import { StyledView, StyledText } from "../../styles/styledComp"
 import {
     Image,
     StyleSheet,
@@ -93,7 +94,7 @@ const Profile = () => {
   }
     return (
        <View style={styles.container}>
-           <Text>Profile Image</Text>
+           <StyledText>Profile Image</StyledText>
            {image? <Image source={{ uri: image }} style={ styles.userImg } />
            :
            mainState['fotos']?
@@ -119,7 +120,7 @@ const Profile = () => {
 
             {image && 
               <TouchableOpacity style={styles.button} onPress={clearPhoto}>
-              <Text style={styles.buttonText}>Redo changes</Text>
+              <StyledText style={styles.buttonText}>Redo changes</StyledText>
               </TouchableOpacity>  
             }
        </View>

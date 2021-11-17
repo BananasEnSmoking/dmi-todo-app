@@ -1,5 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState, useContext } from "react";
+import styled from "styled-components";
+import { StyledView, StyledText } from "../../styles/styledComp"
 import {
   Image,
   KeyboardAvoidingView,
@@ -8,6 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+
 } from "react-native";
 // auth is an instance of firebase.auth() and it is imported from the firebase.js file
 import { auth } from "../../firebase";
@@ -116,9 +119,9 @@ const LoginPage = () => {
         />
       </View>
       {/* We have 2 buttons that will execute the functions above) */}
-      <View style={styles.buttonContainer}>
+      <StyledView style={styles.buttonContainer}>
         <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <StyledText style={styles.buttonText}>Login</StyledText>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleSignup}
@@ -126,7 +129,7 @@ const LoginPage = () => {
         >
           <Text style={styles.buttonOutlineText}>Sign Up</Text>
         </TouchableOpacity>
-      </View>
+      </StyledView>
     </KeyboardAvoidingView>
   );
 };
