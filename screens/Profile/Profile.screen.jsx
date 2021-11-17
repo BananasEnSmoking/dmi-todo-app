@@ -8,10 +8,10 @@ import {
     Image,
     StyleSheet,
     Text,
-    View,
     TouchableOpacity
   } from "react-native";
   import { MainContext } from "../../context/MainContext";
+  import { HomeView, CustomText, ButtonText } from '../../styles/styledcomp';
 
 const Profile = () => {
   const [image, setImage] = useState(null);
@@ -94,8 +94,8 @@ const Profile = () => {
     setImage(null)
   }
     return (
-       <View style={styles.container}>
-           <StyledText>Profile Image</StyledText>
+       <HomeView>
+           <CustomText>Profile Image</CustomText>
            {image? <Image source={{ uri: image }} style={ styles.userImg } />
            :
            mainState['fotos']?
@@ -106,11 +106,11 @@ const Profile = () => {
            
 
             <TouchableOpacity style={styles.button} onPress={pickImage}>
-            <Text style={styles.buttonText}>Gallery!</Text>
+            <ButtonText>Gallery!</ButtonText>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button} onPress={takePhoto}>
-            <Text style={styles.buttonText}>Camera</Text>
+            <ButtonText>Camera</ButtonText>
             </TouchableOpacity>  
 
             {image && 
@@ -124,7 +124,7 @@ const Profile = () => {
               <StyledText style={styles.buttonText}>Redo changes</StyledText>
               </TouchableOpacity>  
             }
-       </View>
+       </HomeView>
     )
 }
 
@@ -136,17 +136,13 @@ const styles = StyleSheet.create({
       height:150,
       borderRadius:75
     },
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
     button: {
-    backgroundColor: "#0782F9",
-    width: "100%",
-    padding: 15,
-    borderRadius: 10,
-    alignItems: "center",
+      backgroundColor: "#0782F9",
+      width: "100%",
+      padding: 15,
+      borderRadius: 10,
+      alignItems: "center",
+      margin: 5,
     },
   });
   

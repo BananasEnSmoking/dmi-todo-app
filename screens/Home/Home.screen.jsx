@@ -1,18 +1,15 @@
 //Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes.
 import { useNavigation } from "@react-navigation/core";
 import React,{useContext, useState} from "react";
-import { StyleSheet, Text, TouchableOpacity, View,  TextInput, FlatList } from "react-native";
+import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
 // auth is an instance of firebase.auth() and it is imported from the firebase.js file
 import { auth } from "../../firebase";
 import { MainContext } from '../../context/MainContext';
 import { Ionicons } from "react-native-vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyledView, StyledText } from "../../styles/styledComp"
-import Profile from "../Profile";
-import { NavigationContainer } from "@react-navigation/native";
+import { HomeView, ButtonText, CustomText, ItemText, TextInputStyled } from "../../styles/styledcomp";
 
 const Tab = createBottomTabNavigator();
-
 
 const HomePage = () => {
   const [todo, setTodo] = useState({
@@ -59,23 +56,22 @@ const HomePage = () => {
   }
 
   return (
-    <StyledView style={styles.container}>
+    <HomeView>
       {/* Simple text with the current user */}
-      <StyledText>Email:{auth.currentUser?.email}</StyledText>
+      <CustomText>Email: {auth.currentUser?.email}</CustomText>
       
-      <TextInput
+      <TextInputStyled
           placeholder="Add Todo"
           value={todo.text}
           onChangeText={(text) => setTodo({...todo,text: text})}
-          style={styles.input}
         />
 
       <TouchableOpacity style={styles.button} onPress={handleNewTodo}>
-        <StyledText style={styles.buttonText}>Add Todo</StyledText>
+        <ButtonText>Add Todo</ButtonText>
       </TouchableOpacity>
       <FlatList
         data={mainState['todos']}
-        renderItem={({item}) => <Text style={styles.item}> {item.estado?
+        renderItem={({item}) => <ItemText> {item.estado?
           <TouchableOpacity onPress={()=>updateState(!item.estado,item)}>
             <Ionicons name="checkmark-circle-sharp" color='green'></Ionicons>
             
@@ -88,33 +84,21 @@ const HomePage = () => {
         
         } {item.text } 
         <TouchableOpacity onPress={()=>deleteItem(item)}>
-          <Text>Borrar</Text>
+        <Ionicons name="remove-circle" color='black'></Ionicons>
         </TouchableOpacity>
-        </Text>}
+        </ItemText>}
       />
 
       {/* Simple button that calls our function */}
       <TouchableOpacity style={styles.button} onPress={handleSignOut}>
-        <StyledText style={styles.buttonText}>Sign Out</StyledText>
+        <ButtonText>Sign Out</ButtonText>
       </TouchableOpacity>
-    </StyledView>
+    </HomeView>
   );
 };
 export default HomePage;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  input: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
   button: {
     backgroundColor: "#0782F9",
     width: "60%",
@@ -122,15 +106,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     marginTop: 40,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "700",
-    fontSize: 16,
+    marginBottom: 10,
   },
 });
