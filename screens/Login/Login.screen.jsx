@@ -1,16 +1,12 @@
-//Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes.import { useNavigation } from "@react-navigation/core";
+//Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes
+import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState, useContext } from "react";
-import styled from "styled-components";
-import { StyledView, StyledText } from "../../styles/styledComp"
 import {
   Image,
   KeyboardAvoidingView,
   StyleSheet,
-  Text,
-  TextInput,
   TouchableOpacity,
   View,
-
 } from "react-native";
 // auth is an instance of firebase.auth() and it is imported from the firebase.js file
 import { auth } from "../../firebase";
@@ -118,7 +114,7 @@ const LoginPage = () => {
         />
       </HomeView>
       {/* We have 2 buttons that will execute the functions above) */}
-      <StyledView style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={handleLogin} style={styles.button}>
           <ButtonText>Login</ButtonText>
         </TouchableOpacity>
@@ -128,7 +124,7 @@ const LoginPage = () => {
         >
           <OutlinedButtonText>Sign Up</OutlinedButtonText>
         </TouchableOpacity>
-      </StyledView>
+      </View>
     </KeyboardAvoidingView>
   );
 };

@@ -1,6 +1,6 @@
 //Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes.
-import { useNavigation } from "@react-navigation/core";
 import React,{useContext, useState} from "react";
+import { useNavigation } from "@react-navigation/core";
 import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
 // auth is an instance of firebase.auth() and it is imported from the firebase.js file
 import { auth } from "../../firebase";
@@ -78,13 +78,13 @@ const HomePage = () => {
           </TouchableOpacity>
         :
         <TouchableOpacity onPress={()=>updateState(!item.estado,item)}>
-          <Ionicons name="ellipse-sharp" color='red'></Ionicons>
+          <Ionicons size="large" name="ellipse-sharp" color='red'></Ionicons>
 
       </TouchableOpacity>
         
         } {item.text } 
         <TouchableOpacity onPress={()=>deleteItem(item)}>
-        <Ionicons name="remove-circle" color='black'></Ionicons>
+        <Ionicons size="large" name="remove-circle" color='black'></Ionicons>
         </TouchableOpacity>
         </ItemText>}
       />

@@ -3,7 +3,7 @@ import React,{ useEffect, useState, useContext } from 'react';
 import firebase from "firebase";
 import { auth } from "../../firebase";
 import * as ImagePicker from 'expo-image-picker';
-import { StyledView, StyledText } from "../../styles/styledComp"
+import { StyledText } from "../../styles/styledComp"
 import {
     Image,
     StyleSheet,
