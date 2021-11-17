@@ -1,0 +1,16 @@
+Universidad Tecnologica de Aguascalientes.
+
+Carrera: Ingeniería en Desarrollo y Gestión de Software.
+Grupo: 10 A.
+
+Integrantes:
+
+
+        Durón Rodríguez Jonathan Alberto.                   160613.
+        González González David Alejandro.                  171286.
+        Reyes Peralta Christian Alexia.                     170476.
+        Vargas Cruz Alan Yahir.                             180059.
+        Velasco Montoya Diana Carolina.                     180055.
+
+
+Docente: Alberto Campos Hernandez.
