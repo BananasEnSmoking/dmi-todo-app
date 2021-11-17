@@ -4,8 +4,6 @@ import {
   Image,
   KeyboardAvoidingView,
   StyleSheet,
-  Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -13,6 +11,7 @@ import {
 import { auth } from "../../firebase";
 import logo from "../../media/images/utags.png";
 import { MainContext } from '../../context/MainContext';
+import { HomeView, OutlinedButtonText, ButtonText, TextInputStyled } from "../../styles/styledcomp";
 
 const LoginPage = () => {
   const { getTodos,getFotos } = useContext(MainContext);
@@ -98,33 +97,31 @@ const LoginPage = () => {
   return (
     // KeyboardAvoidingView is a type of view that will push the content up when a keyboard shows
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <View style={styles.inputContainer}>
+      <HomeView>
         <Image source={logo} style={styles.logo} />
         {/* We have 2 text inputs that will set the state our our constants (email, pdw) */}
-        <TextInput
+        <TextInputStyled
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          style={styles.input}
         />
-        <TextInput
+        <TextInputStyled
           placeholder="Password"
           value={pwd}
           onChangeText={(text) => setPwd(text)}
-          style={styles.input}
           secureTextEntry
         />
-      </View>
+      </HomeView>
       {/* We have 2 buttons that will execute the functions above) */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <ButtonText>Login</ButtonText>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleSignup}
           style={[styles.button, styles.buttonOutline]}
         >
-          <Text style={styles.buttonOutlineText}>Sign Up</Text>
+          <OutlinedButtonText>Sign Up</OutlinedButtonText>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -166,16 +163,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderColor: "#0782F9",
     borderWidth: 2,
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "700",
-    fontSize: 16,
+    marginBottom: 10,
   },
   logo: {
     width: 220,
