@@ -1,3 +1,4 @@
+//Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes.
 import React,{ useEffect, useState, useContext } from 'react';
 import firebase from "firebase";
 import { auth } from "../../firebase";

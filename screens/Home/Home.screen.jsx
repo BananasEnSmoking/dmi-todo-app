@@ -1,3 +1,4 @@
+//Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes.
 import { useNavigation } from "@react-navigation/core";
 import React,{useContext, useState} from "react";
 import { StyleSheet, Text, TouchableOpacity, View,  TextInput, FlatList } from "react-native";

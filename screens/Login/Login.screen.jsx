@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/core";
+//Team from IDGS 10-A group. González, Durón, Velasco, Vargas & Reyes.import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState, useContext } from "react";
 import {
   Image,
