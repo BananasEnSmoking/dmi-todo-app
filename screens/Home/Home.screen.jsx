@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 import { MainContext } from '../../context/MainContext';
 import { Ionicons } from "react-native-vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+import { StyledView, StyledText } from "../../styles/styledComp"
 import Profile from "../Profile";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -59,9 +59,9 @@ const HomePage = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <StyledView style={styles.container}>
       {/* Simple text with the current user */}
-      <Text>Email:{auth.currentUser?.email}</Text>
+      <StyledText>Email:{auth.currentUser?.email}</StyledText>
       
       <TextInput
           placeholder="Add Todo"
@@ -71,7 +71,7 @@ const HomePage = () => {
         />
 
       <TouchableOpacity style={styles.button} onPress={handleNewTodo}>
-        <Text style={styles.buttonText}>Add Todo</Text>
+        <StyledText style={styles.buttonText}>Add Todo</StyledText>
       </TouchableOpacity>
       <FlatList
         data={mainState['todos']}
@@ -95,9 +95,9 @@ const HomePage = () => {
 
       {/* Simple button that calls our function */}
       <TouchableOpacity style={styles.button} onPress={handleSignOut}>
-        <Text style={styles.buttonText}>Sign Out</Text>
+        <StyledText style={styles.buttonText}>Sign Out</StyledText>
       </TouchableOpacity>
-    </View>
+    </StyledView>
   );
 };
 export default HomePage;
