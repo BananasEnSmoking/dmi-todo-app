@@ -5,6 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import {
     Image,
     StyleSheet,
+    Text,
     TouchableOpacity
   } from "react-native";
   import { MainContext } from "../../context/MainContext";
@@ -102,11 +103,11 @@ const Profile = () => {
           }
            
 
-            <TouchableOpacity onPress={pickImage}>
+            <TouchableOpacity style={styles.button} onPress={pickImage}>
             <ButtonText>Gallery!</ButtonText>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={takePhoto}>
+            <TouchableOpacity style={styles.button} onPress={takePhoto}>
             <ButtonText>Camera</ButtonText>
             </TouchableOpacity>  
 

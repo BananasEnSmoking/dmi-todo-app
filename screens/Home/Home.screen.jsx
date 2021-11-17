@@ -63,7 +63,6 @@ const HomePage = () => {
           placeholder="Add Todo"
           value={todo.text}
           onChangeText={(text) => setTodo({...todo,text: text})}
-          style={styles.input}
         />
 
       <TouchableOpacity style={styles.button} onPress={handleNewTodo}>
@@ -71,7 +70,7 @@ const HomePage = () => {
       </TouchableOpacity>
       <FlatList
         data={mainState['todos']}
-        renderItem={({item}) => <ItemText style={styles.item}> {item.estado?
+        renderItem={({item}) => <ItemText> {item.estado?
           <TouchableOpacity onPress={()=>updateState(!item.estado,item)}>
             <Ionicons name="checkmark-circle-sharp" color='green'></Ionicons>
             
@@ -99,13 +98,6 @@ const HomePage = () => {
 export default HomePage;
 
 const styles = StyleSheet.create({
-  input: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
   button: {
     backgroundColor: "#0782F9",
     width: "60%",
@@ -114,10 +106,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 40,
     marginBottom: 10,
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "700",
-    fontSize: 16,
   },
 });
